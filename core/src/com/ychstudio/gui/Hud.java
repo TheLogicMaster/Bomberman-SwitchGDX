@@ -34,7 +34,7 @@ public class Hud implements Disposable {
 
     private float stateTime;
     private Sprite bigBombermanSprite;
-    private Animation bigBombermanAnimation;
+    private Animation<TextureRegion> bigBombermanAnimation;
 
     private Sprite powerSprite;
     private Sprite speedSprite;
@@ -95,7 +95,7 @@ public class Hud implements Disposable {
         for (int i = 0; i < 5; i++) {
             keyFrames.add(new TextureRegion(textureAtlas.findRegion("Bomberman_big"), 32 * i, 0, 32, 48));
         }
-        bigBombermanAnimation = new Animation(0.2f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        bigBombermanAnimation = new Animation<>(0.2f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         bigBombermanSprite = new Sprite(bigBombermanAnimation.getKeyFrame(0));
         bigBombermanSprite.setBounds(17.5f, 0.5f, 2f, 3f);
         stateTime = 0;
@@ -120,11 +120,11 @@ public class Hud implements Disposable {
         Image bombermanImage = new Image(new TextureRegion(textureAtlas.findRegion("Items"), 16 * 5, 0, 16, 16));
         bombermanImage.setPosition(leftAlignment * SCALE, 13.5f * SCALE);
 
-        xLabel = new Label("X", labelStyle);
+        xLabel = new Label(System.getProperty("os.name").equals("horizon") ? "A" : "X", labelStyle);
         xLabel.setFontScale(0.4f);
         xLabel.setPosition(16.8f * SCALE, 6.3f * SCALE);
 
-        zLabel = new Label("Z", labelStyle);
+        zLabel = new Label(System.getProperty("os.name").equals("horizon") ? "B" : "Z", labelStyle);
         zLabel.setFontScale(0.4f);
         zLabel.setPosition(16.8f * SCALE, 5.3f * SCALE);
 

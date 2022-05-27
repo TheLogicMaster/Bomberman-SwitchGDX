@@ -1,6 +1,6 @@
-# Bomberman_libGdx
+# Bomberman SwitchGDX
 
-Bomberman game made with libGdx
+A Bomberman game made with LibGDX (Ported to Switch using [SwitchGDX](https://github.com/TheLogicMaster/switch-gdx))
 
 Using [Artemis-odb](https://github.com/junkdog/artemis-odb) Entity-Component-System
 
@@ -12,9 +12,9 @@ Java excutable [download link](https://github.com/yichen0831/Bomberman_libGdx/re
 
 Arrow keys - Up / Down / Left / Right
 
-X - set/kick bomb
+X/A - set/kick bomb
 
-Z - detonate bomb
+Z/B - detonate bomb
 
 ### cheat controls
 

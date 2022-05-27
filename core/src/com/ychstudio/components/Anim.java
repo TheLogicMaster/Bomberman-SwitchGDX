@@ -6,21 +6,21 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import java.util.HashMap;
 
 public class Anim extends Component {
-    private HashMap<String, Animation> anims;
+    private HashMap<String, Animation<TextureRegion>> anims;
 
     public Anim() {
-        anims = new HashMap<String, Animation>();
+        anims = new HashMap<>();
     }
     
-    public Anim(HashMap<String, Animation> anims) {
+    public Anim(HashMap<String, Animation<TextureRegion>> anims) {
         this.anims = anims;
     } 
     
-    public void putAnimation(String state, Animation anim) {
+    public void putAnimation(String state, Animation<TextureRegion> anim) {
         anims.put(state, anim);
     }
     
-    public Animation getAnimation(String state) {
+    public Animation<TextureRegion> getAnimation(String state) {
         return anims.get(state);
     }
     

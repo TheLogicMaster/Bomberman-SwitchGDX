@@ -159,22 +159,22 @@ public class ActorBuilder {
 
         polygonShape.dispose();
 
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureRegion textureRegion = tileTextureAtlas.findRegion("breakable");
 
-        Animation anim;
+        Animation<TextureRegion> anim;
         Array<TextureRegion> keyFrames = new Array<>();
         for (int i = 0; i < 4; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 16));
         }
-        anim = new Animation(0.15f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.15f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("normal", anim);
 
         keyFrames.clear();
         for (int i = 4; i < 10; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 16));
         }
-        anim = new Animation(0.125f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.125f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("exploding", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 16, 16), 16 / GameManager.PPM, 16 / GameManager.PPM);
@@ -213,17 +213,17 @@ public class ActorBuilder {
         circleShape.dispose();
 
         // animation
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureAtlas textureAtlas = assetManager.get("img/actors.pack", TextureAtlas.class);
         TextureRegion textureRegion = textureAtlas.findRegion("Octopus");
-        Animation anim;
+        Animation<TextureRegion> anim;
 
         Array<TextureRegion> keyFrames = new Array<>();
         // walking down
         for (int i = 0; i < 4; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_down", anim);
 
         keyFrames.clear();
@@ -231,7 +231,7 @@ public class ActorBuilder {
         for (int i = 4; i < 8; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_up", anim);
 
         keyFrames.clear();
@@ -239,7 +239,7 @@ public class ActorBuilder {
         for (int i = 8; i < 12; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_left", anim);
 
         keyFrames.clear();
@@ -249,7 +249,7 @@ public class ActorBuilder {
             textureRegionRight.flip(true, false);
             keyFrames.add(textureRegionRight);
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_right", anim);
 
         keyFrames.clear();
@@ -258,7 +258,7 @@ public class ActorBuilder {
             TextureRegion textureRegionRight = new TextureRegion(textureRegion, i * 16, 0, 16, 24);
             keyFrames.add(textureRegionRight);
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("dying", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 16, 24), 16 / GameManager.PPM, 24 / GameManager.PPM);
@@ -297,17 +297,17 @@ public class ActorBuilder {
         circleShape.dispose();
 
         // animation
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureAtlas textureAtlas = assetManager.get("img/actors.pack", TextureAtlas.class);
         TextureRegion textureRegion = textureAtlas.findRegion("Slime");
-        Animation anim;
+        Animation<TextureRegion> anim;
 
         Array<TextureRegion> keyFrames = new Array<>();
         // walking down
         for (int i = 0; i < 6; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("walking_down", anim);
 
         keyFrames.clear();
@@ -315,7 +315,7 @@ public class ActorBuilder {
         for (int i = 0; i < 6; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("walking_up", anim);
 
         keyFrames.clear();
@@ -323,7 +323,7 @@ public class ActorBuilder {
         for (int i = 0; i < 6; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("walking_left", anim);
 
         keyFrames.clear();
@@ -331,7 +331,7 @@ public class ActorBuilder {
         for (int i = 0; i < 6; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("walking_right", anim);
 
         keyFrames.clear();
@@ -339,7 +339,7 @@ public class ActorBuilder {
         for (int i = 6; i < 9; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("dying", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 16, 24), 16 / GameManager.PPM, 24 / GameManager.PPM);
@@ -378,17 +378,17 @@ public class ActorBuilder {
         circleShape.dispose();
 
         // animation
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureAtlas textureAtlas = assetManager.get("img/actors.pack", TextureAtlas.class);
         TextureRegion textureRegion = textureAtlas.findRegion("Hare");
-        Animation anim;
+        Animation<TextureRegion> anim;
 
         Array<TextureRegion> keyFrames = new Array<>();
         // walking down
         for (int i = 0; i < 9; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_down", anim);
 
         keyFrames.clear();
@@ -396,7 +396,7 @@ public class ActorBuilder {
         for (int i = 0; i < 9; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 24, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_up", anim);
 
         keyFrames.clear();
@@ -404,7 +404,7 @@ public class ActorBuilder {
         for (int i = 0; i < 7; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 24 * 2, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_left", anim);
 
         keyFrames.clear();
@@ -414,7 +414,7 @@ public class ActorBuilder {
             walkingRight.flip(true, false);
             keyFrames.add(walkingRight);
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_right", anim);
 
         keyFrames.clear();
@@ -422,7 +422,7 @@ public class ActorBuilder {
         for (int i = 7; i < 9; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 24 * 2, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("dying", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 16, 24), 16 / GameManager.PPM, 24 / GameManager.PPM);
@@ -461,17 +461,17 @@ public class ActorBuilder {
         circleShape.dispose();
 
         // animation
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureAtlas textureAtlas = assetManager.get("img/actors.pack", TextureAtlas.class);
         TextureRegion textureRegion = textureAtlas.findRegion("BombEnemy");
-        Animation anim;
+        Animation<TextureRegion> anim;
 
         Array<TextureRegion> keyFrames = new Array<>();
         // walking down
         for (int i = 0; i < 5; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("walking_down", anim);
 
         keyFrames.clear();
@@ -479,7 +479,7 @@ public class ActorBuilder {
         for (int i = 0; i < 5; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 24, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("walking_up", anim);
 
         keyFrames.clear();
@@ -487,7 +487,7 @@ public class ActorBuilder {
         for (int i = 0; i < 5; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 24 * 2, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("walking_left", anim);
 
         keyFrames.clear();
@@ -495,7 +495,7 @@ public class ActorBuilder {
         for (int i = 0; i < 5; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 24 * 3, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("walking_right", anim);
 
         keyFrames.clear();
@@ -504,7 +504,7 @@ public class ActorBuilder {
             // no dying sprite
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 0, 0));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("dying", anim);
 
         keyFrames.clear();
@@ -512,7 +512,7 @@ public class ActorBuilder {
         for (int i = 0; i < 5; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 24 * 4, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("attacking_up", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 16, 24), 16 / GameManager.PPM, 24 / GameManager.PPM);
@@ -550,17 +550,17 @@ public class ActorBuilder {
         circleShape.dispose();
 
         // animations
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureAtlas textureAtlas = assetManager.get("img/actors.pack", TextureAtlas.class);
         TextureRegion textureRegion = textureAtlas.findRegion("Boss1");
-        Animation anim;
+        Animation<TextureRegion> anim;
 
         Array<TextureRegion> keyFrames = new Array<>();
         // walking up
         for (int i = 0; i < 1; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 80, 0, 80, 160));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("walking_up", anim);
 
         keyFrames.clear();
@@ -568,7 +568,7 @@ public class ActorBuilder {
         for (int i = 0; i < 1; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 80, 0, 80, 160));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("walking_down", anim);
 
         keyFrames.clear();
@@ -576,7 +576,7 @@ public class ActorBuilder {
         for (int i = 0; i < 1; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 80, 0, 80, 160));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("walking_left", anim);
 
         keyFrames.clear();
@@ -584,7 +584,7 @@ public class ActorBuilder {
         for (int i = 0; i < 1; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 80, 0, 80, 160));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("walking_right", anim);
 
         keyFrames.clear();
@@ -592,7 +592,7 @@ public class ActorBuilder {
         for (int i = 0; i < 1; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 80, 0, 80, 160));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("dying", anim);
 
         keyFrames.clear();
@@ -600,7 +600,7 @@ public class ActorBuilder {
         for (int i = 4; i < 5; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 80, 0, 80, 160));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("damaged", anim);
 
         keyFrames.clear();
@@ -608,7 +608,7 @@ public class ActorBuilder {
         for (int i = 1; i < 4; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 80, 0, 80, 160));
         }
-        anim = new Animation(0.2f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.2f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("attacking_down", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 80, 160), 80 / GameManager.PPM, 160 / GameManager.PPM);
@@ -654,17 +654,17 @@ public class ActorBuilder {
         circleShape.dispose();
 
         // animation
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureAtlas textureAtlas = assetManager.get("img/actors.pack", TextureAtlas.class);
         TextureRegion textureRegion = textureAtlas.findRegion("Bomberman1");
-        Animation anim;
+        Animation<TextureRegion> anim;
 
         Array<TextureRegion> keyFrames = new Array<>();
         // walking up
         for (int i = 0; i < 3; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_up", anim);
 
         // walking left
@@ -672,7 +672,7 @@ public class ActorBuilder {
         for (int i = 3; i < 6; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_left", anim);
 
         // walking down
@@ -680,7 +680,7 @@ public class ActorBuilder {
         for (int i = 6; i < 9; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_down", anim);
 
         // walking right
@@ -688,31 +688,31 @@ public class ActorBuilder {
         for (int i = 9; i < 12; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("walking_right", anim);
 
         // idling up
         keyFrames.clear();
         keyFrames.add(new TextureRegion(textureRegion, 1 * 16, 0, 16, 24));
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("idling_up", anim);
 
         // idling left
         keyFrames.clear();
         keyFrames.add(new TextureRegion(textureRegion, 3 * 16, 0, 16, 24));
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("idling_left", anim);
 
         // idling down
         keyFrames.clear();
         keyFrames.add(new TextureRegion(textureRegion, 7 * 16, 0, 16, 24));
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("idling_down", anim);
 
         // idling right
         keyFrames.clear();
         keyFrames.add(new TextureRegion(textureRegion, 9 * 16, 0, 16, 24));
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("idling_right", anim);
 
         // dying
@@ -720,7 +720,7 @@ public class ActorBuilder {
         for (int i = 12; i < 18; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 24));
         }
-        anim = new Animation(0.1f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.1f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("dying", anim);
 
         // teleporting
@@ -729,7 +729,7 @@ public class ActorBuilder {
         keyFrames.add(new TextureRegion(textureRegion, 16 * 3, 0, 16, 24));
         keyFrames.add(new TextureRegion(textureRegion, 16 * 7, 0, 16, 24));
         keyFrames.add(new TextureRegion(textureRegion, 16 * 9, 0, 16, 24));
-        anim = new Animation(0.05f, keyFrames, Animation.PlayMode.LOOP);
+        anim = new Animation<>(0.05f, keyFrames, Animation.PlayMode.LOOP);
         anims.put("teleporting", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 16, 24), 16 / GameManager.PPM, 24 / GameManager.PPM);
@@ -766,10 +766,10 @@ public class ActorBuilder {
         polygonShape.dispose();
 
         TextureAtlas textureAtlas = assetManager.get("img/actors.pack", TextureAtlas.class);
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureRegion textureRegion = textureAtlas.findRegion("Bomb");
 
-        Animation anim;
+        Animation<TextureRegion> anim;
         Array<TextureRegion> keyFrames = new Array<>();
         if (player.bombPower >= player.MAX_BOMB_POWER) {
             for (int i = 0; i < 3; i++) {
@@ -780,7 +780,7 @@ public class ActorBuilder {
                 keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 16));
             }
         }
-        anim = new Animation(0.15f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.15f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("normal", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 16, 16), 16 / GameManager.PPM, 16 / GameManager.PPM);
@@ -817,10 +817,10 @@ public class ActorBuilder {
         polygonShape.dispose();
 
         TextureAtlas textureAtlas = assetManager.get("img/actors.pack", TextureAtlas.class);
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         TextureRegion textureRegion = textureAtlas.findRegion("Bomb");
 
-        Animation anim;
+        Animation<TextureRegion> anim;
         Array<TextureRegion> keyFrames = new Array<>();
         if (player.bombPower >= player.MAX_BOMB_POWER) {
             for (int i = 3; i < 5; i++) {
@@ -831,7 +831,7 @@ public class ActorBuilder {
                 keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 16));
             }
         }
-        anim = new Animation(0.15f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
+        anim = new Animation<>(0.15f, keyFrames, Animation.PlayMode.LOOP_PINGPONG);
         anims.put("normal", anim);
 
         Renderer renderer = new Renderer(new TextureRegion(textureRegion, 0, 0, 16, 16), 16 / GameManager.PPM, 16 / GameManager.PPM);
@@ -884,10 +884,10 @@ public class ActorBuilder {
         y = MathUtils.floor(y) + 0.5f;
 
         TextureRegion textureRegion = assetManager.get("img/actors.pack", TextureAtlas.class).findRegion("Explosion");
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
 
         Array<TextureRegion> keyFrames = new Array<>();
-        Animation anim;
+        Animation<TextureRegion> anim;
 
         // center
         BodyDef bodyDef = new BodyDef();
@@ -906,7 +906,7 @@ public class ActorBuilder {
         for (int i = 0; i < 5; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 16, 16, 16));
         }
-        anim = new Animation(0.15f, keyFrames, Animation.PlayMode.NORMAL);
+        anim = new Animation<>(0.15f, keyFrames, Animation.PlayMode.NORMAL);
         anims.put("exploding", anim);
 
         Renderer renderer = new Renderer(textureRegion, 1, 1);
@@ -953,7 +953,7 @@ public class ActorBuilder {
                     keyFrames.add(new TextureRegion(textureRegion, j * 16, 16 * 2, 16, 16));
                 }
             }
-            anim = new Animation(0.15f, keyFrames, Animation.PlayMode.NORMAL);
+            anim = new Animation<>(0.15f, keyFrames, Animation.PlayMode.NORMAL);
             anims.put("exploding", anim);
 
             renderer = new Renderer(textureRegion, 1, 1);
@@ -1001,7 +1001,7 @@ public class ActorBuilder {
                     keyFrames.add(new TextureRegion(textureRegion, j * 16, 16 * 2, 16, 16));
                 }
             }
-            anim = new Animation(0.15f, keyFrames, Animation.PlayMode.NORMAL);
+            anim = new Animation<>(0.15f, keyFrames, Animation.PlayMode.NORMAL);
             anims.put("exploding", anim);
 
             renderer = new Renderer(textureRegion, 1, 1);
@@ -1049,7 +1049,7 @@ public class ActorBuilder {
                     keyFrames.add(new TextureRegion(textureRegion, j * 16, 16 * 4, 16, 16));
                 }
             }
-            anim = new Animation(0.15f, keyFrames, Animation.PlayMode.NORMAL);
+            anim = new Animation<>(0.15f, keyFrames, Animation.PlayMode.NORMAL);
             anims.put("exploding", anim);
 
             renderer = new Renderer(textureRegion, 1, 1);
@@ -1097,7 +1097,7 @@ public class ActorBuilder {
                     keyFrames.add(new TextureRegion(textureRegion, j * 16, 16 * 4, 16, 16));
                 }
             }
-            anim = new Animation(0.15f, keyFrames, Animation.PlayMode.NORMAL);
+            anim = new Animation<>(0.15f, keyFrames, Animation.PlayMode.NORMAL);
             anims.put("exploding", anim);
 
             renderer = new Renderer(textureRegion, 1, 1);
@@ -1204,9 +1204,9 @@ public class ActorBuilder {
         for (int i = 6; i < 8; i++) {
             keyFrames.add(new TextureRegion(textureRegion, i * 16, 0, 16, 16));
         }
-        Animation anim = new Animation(0.2f, keyFrames, Animation.PlayMode.LOOP);
+        Animation<TextureRegion> anim = new Animation<>(0.2f, keyFrames, Animation.PlayMode.LOOP);
 
-        HashMap<String, Animation> anims = new HashMap<>();
+        HashMap<String, Animation<TextureRegion>> anims = new HashMap<>();
         anims.put("normal", anim);
 
         Transform transform = new Transform(body.getPosition().x, body.getPosition().y, 1, 1, 0);

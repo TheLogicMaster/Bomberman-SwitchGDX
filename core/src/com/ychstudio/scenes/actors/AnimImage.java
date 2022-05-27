@@ -8,8 +8,8 @@ import java.util.HashMap;
 
 public class AnimImage extends Image {
     
-    private HashMap<String, Animation> anims;
-    
+    private HashMap<String, Animation<TextureRegion>> anims;
+
     private String currentAnim;
     private float stateTime;
     
@@ -20,7 +20,7 @@ public class AnimImage extends Image {
         currentAnim = "";
     }
     
-    public void put(String key, Animation anim) {
+    public void put(String key, Animation<TextureRegion> anim) {
         anims.put(key, anim);
         setCurrentAnim(key);
     }

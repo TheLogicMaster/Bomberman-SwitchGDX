@@ -90,7 +90,7 @@ public class MainMenuScreen extends ScreenAdapter {
         indicator1.setPosition(indicatorX, indicatorY);
         indicator1.setVisible(false);
         
-        indicationsTexture = new Texture("img/indications.png");
+        indicationsTexture = new Texture(System.getProperty("os.name").equals("horizon") ? "img/indications_switch.png" : "img/indications.png");
         indications = new Image(indicationsTexture);
         indications.setPosition(640f - indications.getWidth() - 12f, 12f);
 
@@ -144,7 +144,8 @@ public class MainMenuScreen extends ScreenAdapter {
             indicator1.setPosition(indicatorX, newIndicatorY);
         }
 
-        if (!selected && (Gdx.input.isKeyJustPressed(Input.Keys.X) || Gdx.input.isKeyJustPressed(Input.Keys.Z))) {
+        if (!selected && (Gdx.input.isKeyJustPressed(Input.Keys.X) || Gdx.input.isKeyJustPressed(Input.Keys.Z)
+            || Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_A) || Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_B))) {
             GameManager.getInstance().playSound("Teleport.ogg");
             
             selected = true;

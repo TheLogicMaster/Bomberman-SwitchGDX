@@ -109,7 +109,7 @@ public class PlayerSystem extends IteratingSystem {
             }
 
             // set bomb or kick bomb
-            if (Gdx.input.isKeyJustPressed(Input.Keys.X)) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.X) || Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_A)) {
                 kicking = false;
                 if (player.kickBomb) {
                     // check if player is facing a bomb, if so, kick it
@@ -161,7 +161,7 @@ public class PlayerSystem extends IteratingSystem {
             }
 
             // trigger remote bomb
-            if (Gdx.input.isKeyJustPressed(Input.Keys.Z) && player.remoteBomb) {
+            if ((Gdx.input.isKeyJustPressed(Input.Keys.Z) || Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_B)) && player.remoteBomb) {
                 Queue<Entity> remoteBombQueue = GameManager.getInstance().getRemoteBombDeque();
 
                 // clean those bombs which have already exploded
