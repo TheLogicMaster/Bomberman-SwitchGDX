@@ -9,6 +9,8 @@ import com.artemis.utils.Sort;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ychstudio.components.Renderer;
 import com.ychstudio.components.Transform;
+
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class RenderSystem extends EntitySystem {
@@ -47,29 +49,34 @@ public class RenderSystem extends EntitySystem {
 
     @Override
     protected void processSystem() {
-        Bag<Entity> entities = getEntities();
-        
-        Sort sort = Sort.instance();
-        sort.sort(entities, new Comparator<Entity>() {
-            @Override
-            public int compare(Entity o1, Entity o2) {
-                Transform t1 = mTransform.get(o1);
-                Transform t2 = mTransform.get(o2);
-                if (t1.z < t2.z) {
-                    return 1;
-                }
-                else if (t1.z > t2.z) {
-                    return -1;
-                }
-                else {
-                    return 0;
-                }
-            }
-        });
-        
+//        Bag<Entity> entities = getEntities();
+//
+//        Sort sort = Sort.instance();
+//        sort.sort(entities, new Comparator<Entity>() {
+//            @Override
+//            public int compare(Entity o1, Entity o2) {
+//                Transform t1 = mTransform.get(o1);
+//                Transform t2 = mTransform.get(o2);
+//                if (t1.z < t2.z) {
+//                    return 1;
+//                }
+//                else if (t1.z > t2.z) {
+//                    return -1;
+//                }
+//                else {
+//                    return 0;
+//                }
+//            }
+//        });
+
+        // Patch to avoid bug where entities would get incorrectly removed during sort
+        ArrayList<Entity> entities = new ArrayList<>();
+        for (Entity entity : getEntities())
+            entities.add(entity);
+        entities.sort((o1, o2) -> Float.compare(mTransform.get(o2).z, mTransform.get(o1).z));
+
         for (Entity e : entities) {
             process(e);
         }
     }
-    
 }

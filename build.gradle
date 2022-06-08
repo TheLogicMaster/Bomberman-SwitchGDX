@@ -23,6 +23,8 @@ allprojects {
         aiVersion = '1.8.2'
         regExodusVersion = '0.1.13'
         gdxControllersVersion = '2.2.1'
+        switchGdxVersion = 'e39313026f'
+        clearwingVersion = '9bbe05eee0'
     }
 
     repositories {
