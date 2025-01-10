@@ -147,7 +147,7 @@ task nro(dependsOn: transpile) {
     doLast {
         exec {
             if (DefaultNativePlatform.currentOperatingSystem.isWindows())
-                commandLine 'C:\\msys64\\msys2_shell.cmd', '-mingw64', '-where', "$buildDir${File.separator}${rootProject.name}", '-c',
+                commandLine 'C:\\devkitPro\\msys2\\msys2_shell.cmd', '-mingw64', '-where', "$buildDir${File.separator}${rootProject.name}", '-c',
                         'cmake --toolchain DevkitA64Libnx.cmake -B cmake-build-switch . && cmake --build cmake-build-switch -j8 || sleep 50000'
             else
                 commandLine 'bash', '-c', 'cmake --toolchain DevkitA64Libnx.cmake -B cmake-build-switch . && cmake --build cmake-build-switch -j8'
@@ -167,7 +167,7 @@ task deploy(dependsOn: nro) {
     doLast {
         exec {
             if (DefaultNativePlatform.currentOperatingSystem.isWindows())
-                commandLine 'C:\\msys64\\usr\\bin\\bash', '-c', "/opt/devkitpro/tools/bin/nxlink --server ./cmake-build-switch/${rootProject.name}.nro"
+                commandLine 'C:\\devkitPro\\msys2\\usr\\bin\\bash', '-c', "/opt/devkitpro/tools/bin/nxlink --server ./cmake-build-switch/${rootProject.name}.nro"
             else
                 commandLine 'bash', '-c', "\$DEVKITPRO/tools/bin/nxlink --server ./cmake-build-switch/${rootProject.name}.nro"
             workingDir "$buildDir${File.separator}${rootProject.name}"
