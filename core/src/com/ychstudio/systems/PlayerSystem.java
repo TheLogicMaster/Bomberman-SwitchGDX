@@ -69,7 +69,7 @@ public class PlayerSystem extends IteratingSystem {
             }
 
             // player movement controls
-            if (Gdx.input.isKeyPressed(Input.Keys.UP) || Controllers.getCurrent().getAxis(1) > 0.1f) {
+            if (Gdx.input.isKeyPressed(Input.Keys.UP) || Controllers.getCurrent().getAxis(1) < -0.1f) {
                 if (player.invincible || !hitBombVertical(body, fromV.set(body.getPosition()), toV.set(body.getPosition().x, body.getPosition().y + 0.5f))) {
                     if (Math.abs(linearVelocity.y) < maxSpeed) {
                         body.applyLinearImpulse(new Vector2(0, player.acceleration * body.getMass()), body.getWorldCenter(), true);
@@ -79,7 +79,7 @@ public class PlayerSystem extends IteratingSystem {
                 player.state = Player.State.WALKING_UP;
             }
 
-            if (Gdx.input.isKeyPressed(Input.Keys.DOWN)|| Controllers.getCurrent().getAxis(1) < -0.1f) {
+            if (Gdx.input.isKeyPressed(Input.Keys.DOWN)|| Controllers.getCurrent().getAxis(1) > 0.1f) {
                 if (player.invincible || !hitBombVertical(body, fromV.set(body.getPosition()), toV.set(body.getPosition().x, body.getPosition().y - 0.5f))) {
                     if (Math.abs(linearVelocity.y) < maxSpeed) {
                         body.applyLinearImpulse(new Vector2(0, -player.acceleration * body.getMass()), body.getWorldCenter(), true);
